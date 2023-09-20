@@ -1,5 +1,6 @@
-<img src="https://raw.githubusercontent.com/BEPb/BEPb/5c63fa170d1cbbb0b1974f05a3dbe6aca3f5b7f3/assets/Bottom_up.svg" width="100%" />
 <h3 align="center">Founded by Fierra and ShiroiSoba</h3>
+
+
 - 🔭 I’m currently working on [Dwi Emas Minecraft Server](https://web.deminecraft.repl.co)
 
 - 🤝 We're recruiting fellow coders in [Dwi Emas International School](https://web.deminecraft.repl.co)
