@@ -1,11 +1,12 @@
-<h3 align="center">Founded by Fierra and ShiroiSoba</h3>
+<h1 align="center">Dwi Emas Minecraft</h1>
+<h3 align="center">A School Minecraft Project Founded by Fierra and ShiroiSoba</h3>
 
 
 - 🔭 I’m currently working on [Dwi Emas Minecraft Server](https://web.deminecraft.repl.co)
 
 - 🤝 We're recruiting fellow coders in [Dwi Emas International School](https://web.deminecraft.repl.co)
 
-- 📫 Mailbox **dwiemasminecraft@gmail.com**
+- 📫 Mailbox: [**dwiemasminecraft@gmail.com**](mailto:dwiemasminecraft@gmail.com)
 
 <div> <a href="https://github.com/DwiEmasMinecraft" target="_blank"><img src="https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white" target="_blank"></a>
 <a href = "mailto:dwiemasminecraft@gmail.com"><img src="https://img.shields.io/badge/-Gmail-%23333?style=for-the-badge&logo=gmail&logoColor=white" target="_blank"></a>
