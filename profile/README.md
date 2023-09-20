@@ -4,9 +4,9 @@
 
 - 🔭 I’m currently working on [Dwi Emas Minecraft Server](https://web.deminecraft.repl.co)
 
-- 🤝 We're recruiting fellow coders in [Dwi Emas International School](https://web.deminecraft.repl.co)
+- 🤝 We're recruiting fellow coders in [Dwi Emas International School](https://forms.gle/pvrq4uHM7UjofS6k6)
 
-- 📫 Mailbox: [**dwiemasminecraft@gmail.com**](mailto:dwiemasminecraft@gmail.com)
+- 📫 Mailbox: [**dwiemasminecraft@gmail.com**](mailto:dwiemasminecraft@gmail.com) [**Whatsapp**](https://api.whatsapp.com/send?phone=601154264120&text=I%20have%20questions%20about%20the%20application%20form)
 
 <div> <a href="https://github.com/DwiEmasMinecraft" target="_blank"><img src="https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white" target="_blank"></a>
 <a href = "mailto:dwiemasminecraft@gmail.com"><img src="https://img.shields.io/badge/-Gmail-%23333?style=for-the-badge&logo=gmail&logoColor=white" target="_blank"></a>
