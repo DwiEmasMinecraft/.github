@@ -1,27 +1,138 @@
-<h1 align="center">Dwi Emas Minecraft</h1>
-<h3 align="center">A School Minecraft Project Founded by Fierra and ShiroiSoba</h3>
+# 🏗️ DEMC Infrastructure Documentation
 
+**Project Name**: DEMC (Dwi Emas Minecraft)  
+**Maintained by**: Hitbox Games  
+**Type**: Multi-System Game Infrastructure  
+**Purpose**: A secure, customized Minecraft experience with account management, anti-cheat protections, and a connected community.
 
-- 🔭 I’m currently working on [Dwi Emas Minecraft Server](https://web.deminecraft.repl.co)
+---
 
-- 🤝 We're recruiting fellow coders in [Dwi Emas International School](https://forms.gle/pvrq4uHM7UjofS6k6)
+## 🌐 System Overview
 
-- 📫 Mailbox: [**demc@duck.com**](mailto:demc@duck.com)
+The DEMC ecosystem includes the following components:
 
-<div> <a href="https://github.com/DwiEmasMinecraft" target="_blank"><img src="https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white" target="_blank"></a>
-<a href = "mailto:dwiemasminecraft@gmail.com"><img src="https://img.shields.io/badge/-Gmail-%23333?style=for-the-badge&logo=gmail&logoColor=white" target="_blank"></a>
-</div><h3 align="left">Connect with me:</h3>
-<p align="left">
-<a href="https://www.youtube.com/c/@demcyt" target="blank"><img align="center" src="https://raw.githubusercontent.com/teamedwardforever/Readme-Generator/71f25dd8b98329b168142a6b782a107b75eab178/svg/Social/youtube.svg" alt="@demcyt" height="30" width="40" /></a><a href="https://discord.gg/Dan9ppQNUe" target="blank"><img align="center" src="https://raw.githubusercontent.com/teamedwardforever/Readme-Generator/71f25dd8b98329b168142a6b782a107b75eab178/svg/Social/discord.svg" alt="Dan9ppQNUe" height="30" width="40" /></a></p>
+1. 🔐 **HTBX-Auth** – Central authentication and HWID verification system  
+2. 👤 **PlayerInfo API** – Centralized API for player metadata and integration  
+3. 🖥️ **Minecraft Server** – Secure and modded server with plugin integrations  
+4. 🧩 **Client Mod** – Enforces authentication, anti-cheat, and token sync  
+5. 🌐 **DEMC Website** – User profile customization and account portal  
+6. 🤖 **Discord Bot & Community** – Account linking, player commands, and live alerts
 
-<h3 align="left">Languages and Tools:</h3>
-<p align="left">
-<img src="https://raw.githubusercontent.com/teamedwardforever/Readme-Generator/71f25dd8b98329b168142a6b782a107b75eab178/svg/Skills/Languages/javascript-original.svg" alt="Javascript" width="40" height="40"/>
-<img src="https://raw.githubusercontent.com/teamedwardforever/Readme-Generator/71f25dd8b98329b168142a6b782a107b75eab178/svg/Skills/Languages/python-original.svg" alt="Python" width="40" height="40"/>
-<img src="https://raw.githubusercontent.com/teamedwardforever/Readme-Generator/71f25dd8b98329b168142a6b782a107b75eab178/svg/Skills/Languages/java-original.svg" alt="Java" width="40" height="40"/>
-<img src="https://raw.githubusercontent.com/teamedwardforever/Readme-Generator/71f25dd8b98329b168142a6b782a107b75eab178/svg/Skills/Frontend/html5-original-wordmark.svg" alt="HTML" width="40" height="40"/>
-<img src="https://raw.githubusercontent.com/teamedwardforever/Readme-Generator/71f25dd8b98329b168142a6b782a107b75eab178/svg/Skills/Frontend/css3-original-wordmark.svg" alt="Css" width="40" height="40"/>
-<img src="https://raw.githubusercontent.com/teamedwardforever/Readme-Generator/71f25dd8b98329b168142a6b782a107b75eab178/svg/Skills/Backend/nodejs-original-wordmark.svg" alt="NodeJs" width="40" height="40"/>
-<img src="https://raw.githubusercontent.com/teamedwardforever/Readme-Generator/71f25dd8b98329b168142a6b782a107b75eab178/svg/Skills/Backend/express-original-wordmark.svg" alt="Express" width="40" height="40"/>
-<img src="https://raw.githubusercontent.com/teamedwardforever/Readme-Generator/71f25dd8b98329b168142a6b782a107b75eab178/svg/Skills/Database/mongodb-original-wordmark.svg" alt="Mongodb" width="40" height="40"/>
-</p>
+---
+
+## 🧱 Architecture Diagram
+
+```mermaid
+graph TD
+  A[Client Mod] -->|Login + HWID| B[HTBX-Auth Server]
+  A -->|Connect| C[Minecraft Server]
+  C -->|Fetch UUID & Stats| D[PlayerInfo API]
+  B -->|Issue Auth Token| A
+  B -->|Validate HWID| E[Native Binary]
+  F[Website] -->|Token Login| B
+  G[Discord Bot] -->|Link/Query| D
+````
+
+---
+
+## 🔐 1. HTBX-Auth
+
+**Technology**: Node.js + SQLite3
+**Purpose**: Secure authentication and HWID binding
+
+* Password hashing with `bcrypt`
+* HMAC signature validation
+* Local SQLite3 user/session store
+* Native binary used for fingerprinting
+* REST + WebSocket endpoints
+
+🔗 [HTBX-Auth GitHub Repo](https://github.com/HitboxDevelopment/htbx-auth)
+
+---
+
+## 📊 2. PlayerInfo API
+
+**Technology**: Node.js / Express
+**Purpose**: Stores and exposes player metadata
+
+* Tracks join date, stats, roles, etc.
+* Linked to Minecraft UUID and Discord ID
+* Token-based access
+* Supports web and bot queries
+
+---
+
+## 🎮 3. Minecraft Server
+
+**Base**: Paper / Forge Hybrid
+**Features**:
+
+* Auth integration using HTBX-Auth token
+* Anti-cheat hooks via client mod
+* Player sync to PlayerInfo API
+* Custom gameplay plugins
+
+---
+
+## 🧩 4. Client Mod
+
+**Built With**: Forge/Fabric
+**Purpose**: Local login enforcement and integrity check
+
+* Runs native executable for HWID
+* Sends auth requests to HTBX-Auth
+* Ensures player token matches session
+* Sends behavior telemetry to backend
+
+---
+
+## 🌐 5. DEMC Website
+
+**Tech Stack**: React + REST API
+**Purpose**: Public user interface and profile portal
+
+* Login via HTBX-Auth token
+* View and update player profile
+* Link Discord account
+* Customize settings and skins (future)
+* Admin dashboard for moderation (future)
+
+---
+
+## 🤖 6. Discord Bot & Community
+
+**Bot Platform**: Discord.js
+**Community Server**: [DEMC Discord Invite]() *(Insert Invite)*
+
+**Features**:
+
+* Account linking via Discord ID
+* `/profile`, `/stats`, `/verify` commands
+* Live alerts (logins, bans, events)
+* Sync roles with in-game data
+* Moderation + logging integration (optional)
+
+---
+
+## 🧠 Roadmap
+
+* [ ] Profile customization (skins, cosmetics)
+* [ ] Discord role sync to in-game ranks
+* [ ] Player reputation system
+* [ ] Admin moderation tools (web + Discord)
+
+---
+
+## 👥 Contributors
+
+* Hitbox Games Core Team
+* DEMC Moderation Team
+* Dwi Emas IT Collaborators
+
+---
+
+## 📄 License
+
+Project components are semi-private; some systems are open-sourced under MIT License. See individual repositories for license terms.
+
+```
