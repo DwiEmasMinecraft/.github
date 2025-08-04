@@ -24,13 +24,31 @@ The DEMC ecosystem includes the following components:
 
 ```mermaid
 graph TD
-  A[Client Mod] -->|Login + HWID| B[HTBX-Auth Server]
-  A -->|Connect| C[Minecraft Server]
-  C -->|Fetch UUID & Stats| D[PlayerInfo API]
-  B -->|Issue Auth Token| A
-  B -->|Validate HWID| E[Native Binary]
-  F[Website] -->|Token Login| B
-  G[Discord Bot] -->|Link/Query| D
+  subgraph Player Client
+    A[Client Mod]
+    E[Native Binary]
+  end
+
+  subgraph Backend Services
+    B[HTBX-Auth Server]
+    C[PlayerInfo API]
+  end
+
+  subgraph Community Tools
+    F[Website]
+    G[Discord Bot]
+  end
+
+  A -->|Run & Collect HWID| E
+  E -->|HWID Output| A
+  A -->|Login + HWID| B
+  B -->|Validate + Issue Token| A
+  B -->|Save HWID| C
+  A -->|Connect with Token| H[Minecraft Server]
+  H -->|Player Stats| C
+  F -->|User Login| B
+  F -->|User Data| C
+  G -->|Commands & Links| C
 ````
 
 ---
