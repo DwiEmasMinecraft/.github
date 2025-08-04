@@ -102,7 +102,7 @@ graph TD
 ## 🤖 6. Discord Bot & Community
 
 **Bot Platform**: Discord.js
-**Community Server**: [DEMC Discord Invite]() *(Insert Invite)*
+**Community Server**: [DEMC Discord Invite](https://discord.gg/NuCFG8z53Y)
 
 **Features**:
 
@@ -125,9 +125,8 @@ graph TD
 
 ## 👥 Contributors
 
-* Hitbox Games Core Team
-* DEMC Moderation Team
-* Dwi Emas IT Collaborators
+* Fierra
+* ShiroiSoba
 
 ---
 
